@@ -1,21 +1,23 @@
-.main {
-  height: 100%;
-  width: 100%;
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .container {
-  width: 400px;
-  height: 400px;
   max-width: 400px;
-  max-height: 400px;
 }
 
+.link {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #3B74F2 !important;
+  border: 0;
+  padding: 0;
+  border-radius: 8px;
+  width: 100%;
+  line-height: 56px;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: center;
+}
 
-a + a {
-  margin-top: 2rem;
+.link + .link {
+  margin-top: 12px;
 }

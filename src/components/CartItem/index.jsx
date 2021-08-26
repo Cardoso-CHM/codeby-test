@@ -12,7 +12,7 @@ const CartItem = ({
   const fSellingPrice = formatMoney(sellingPrice);
 
   return (
-    <div key={id} className="flex">
+    <div className="flex">
       <div className={styles.itemImg}>
         <img src={imgUrl} alt="Product Img" />
       </div>

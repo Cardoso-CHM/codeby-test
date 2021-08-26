@@ -1,74 +1,74 @@
+import { useEffect, useState } from "react";
 import Button from "../../components/Button";
 import CartItemList from "../../components/CartItemList";
-import Line from '../../components/Line';
-
-const json1 = [
-  {
-    id: 1,
-    description: "Trufa de morango",
-    price: 1.23,
-    sellingPrice: 1.11,
-    imgUrl: "http://codeby.vteximg.com.br/arquivos/ids/159939-800-1029/trufa-morango-30g.png?v=636916431597070000"
-  },
-  {
-    id: 2,
-    description: "Trufa de chocolate",
-    price: 1.23,
-    sellingPrice: 1.11,
-    imgUrl: "http://codeby.vteximg.com.br/arquivos/ids/159939-800-1029/trufa-morango-30g.png?v=636916431597070000"
-  },
-  {
-    id: 3,
-    description: "Trufa de limão",
-    price: 1.23,
-    sellingPrice: 1.11,
-    imgUrl: "http://codeby.vteximg.com.br/arquivos/ids/159939-800-1029/trufa-morango-30g.png?v=636916431597070000"
-  },
-  {
-    id: 4,
-    description: "Trufa de chocolate branco",
-    price: 1.23,
-    sellingPrice: 1.11,
-    imgUrl: "http://codeby.vteximg.com.br/arquivos/ids/159939-800-1029/trufa-morango-30g.png?v=636916431597070000"
-  },
-]
+import fakeApi from "../../resources/fakeApi";
+import convertApiResponse from "../../utils/convertApiResponse";
+import Loader from 'react-loader-spinner';
+import styles from './styles.module.css';
+import cx from 'classnames';
 
 const Cart = ({
   withFee
 }) => {
+  const [listData, setListData] = useState([]);
+  const [displaySpinner, setDisplaySpinner] = useState(true);
+
+  useEffect(() => {
+    fakeApi.get(withFee)
+      .then(response => {
+        if(response) {
+          setListData(convertApiResponse(response));
+          setDisplaySpinner(false);
+        }
+      })
+      .catch(err => console.log(err));
+  }, [withFee]);
+
+  const handleFinishButtonClick = (ev) => {
+    ev.stopPropagation();
+
+    alert("Hot stuff going on now!");
+  }
+
   return (
-    <div className="card">
-      <div className="pa16">
-        <p className="b f20 tc">
+    <div className={cx(styles.container, "card")}>
+      <div className="flex pa16">
+        <a href="../" className="absolute f14 mt4 ml8 no-underline black pointer">
+          Voltar
+        </a>
+        <p className="b f20 tc-ns tr w-100">
           Meu carrinho
         </p>
       </div>
-      <Line />
 
-      <div className="overflow-auto pa16">
-        <CartItemList
-          items={json1}
-        />
-      </div>
-      <Line />
+      {
+        displaySpinner 
+        ? (
+          <div className={styles.loading}>
+            <Loader 
+              type="ThreeDots"
+              color="#3B74F2"
+              height={100}
+              width={100}
+              visible={true}
+            />
+          </div>
+        )
+        : (
+          <>
+            <CartItemList
+              items={listData}
+            />
 
-      <div className="flex justify-between pa24">
-        <p className="b f20">
-          Total
-        </p>
-
-        <p className="b f20">
-          R$ 13,31
-        </p>
-      </div>
-      <Line />
-
-      <div className="pa16">
-        <Button
-          value="Finalizar compra"
-          onClick={() => alert("teste 1")}
-        />
-      </div>
+            <div className="pa16">
+              <Button
+                value="Finalizar compra"
+                handleClick={handleFinishButtonClick}
+              />
+            </div>
+          </>
+        )
+      }
     </div>
   );
 }

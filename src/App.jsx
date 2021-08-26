@@ -12,12 +12,12 @@ function App() {
         <Route path="/" exact>
           <MainPage />
         </Route>
-        <Route path="/com-frete">
-          <Cart />
+        <Route path="/withFee">
+          <Cart withFee={true} />
         </Route>
-        {/* <Route path="/sem-frete">
-          <MainPage />
-        </Route> */}
+        <Route path="/withoutFee">
+          <Cart withFee={false} />
+        </Route>
       </Switch>
     </Router>
   );

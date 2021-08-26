@@ -2,11 +2,11 @@ import styles from './styles.module.css';
 
 const Button = ({
   value,
-  onCLick
+  handleClick
 }) => {
 
   return (
-    <button className={styles.button} onClick={onCLick}>
+    <button className={styles.button} onClick={handleClick}>
       {value}
     </button>
   );

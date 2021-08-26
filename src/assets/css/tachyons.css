@@ -4751,7 +4751,7 @@ code,
 }
 /* Uncomment out the line below to help debug layout issues */
 /* @import './_debug'; */
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 24em) {
   .aspect-ratio-ns {
     height: 0;
     position: relative;

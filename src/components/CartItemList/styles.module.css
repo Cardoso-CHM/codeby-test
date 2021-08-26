@@ -1,3 +1,21 @@
 .item + .item {
   margin-top : 1rem;
 }
+
+.scrollable {
+  flex-grow: 1;
+  padding: 16px;
+  overflow-y: auto;
+  flex-grow: 1;
+  height: 300px;
+}
+
+.free {
+  background-color: #C7FFA6;
+  color: #217A00;
+  margin-top: 12px;
+  text-align: center;
+  border-radius: 24px;
+  padding: 12px 24px;
+  font-weight: 600;
+}
