@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import { Link } from 'react-router-dom';
 import styles from './styles.module.css';
 
 const MainPage = () => {
@@ -13,13 +14,13 @@ const MainPage = () => {
       </p>
 
       <div className="w-100 h-100 mt32 mb32 flex flex-column items-center justify-center">
-        <a href="./withFee" className={styles.link}>
+        <Link to="./withFee" className={styles.link}>
           Carrinho
-        </a>
+        </Link>
 
-        <a href="./withoutFee" className={styles.link}>
+        <Link to="./withoutFee" className={styles.link}>
           Carrinho sem frete
-        </a>
+        </Link>
       </div>
 
       <div className="w-100">

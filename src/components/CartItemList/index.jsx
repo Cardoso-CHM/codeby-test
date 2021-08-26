@@ -11,20 +11,10 @@ const CartItemList = ({
   return (
     <div className="bt bb b--silver flex flex-column flex-grow-1">
       <div className={styles.scrollable}>
-        {items.map(({ 
-          id,
-          description,
-          price,
-          sellingPrice,
-          imgUrl,
-        }) =>
-        <div key={id} className={styles.item}>
+        {items.map((item) =>
+        <div key={item.id} className={styles.item}>
           <CartItem
-            id={id}
-            description={description}
-            price={price}
-            sellingPrice={sellingPrice}
-            imgUrl={imgUrl} 
+            {...item}
           />
         </div>
         )}

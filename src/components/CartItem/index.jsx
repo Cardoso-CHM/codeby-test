@@ -2,7 +2,6 @@ import formatMoney from '../../utils/formatMoney';
 import styles from './styles.module.css';
 
 const CartItem = ({
-  id,
   description,
   price,
   sellingPrice,

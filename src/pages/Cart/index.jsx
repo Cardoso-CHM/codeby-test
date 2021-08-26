@@ -6,6 +6,7 @@ import convertApiResponse from "../../utils/convertApiResponse";
 import Loader from 'react-loader-spinner';
 import styles from './styles.module.css';
 import cx from 'classnames';
+import { Link } from "react-router-dom";
 
 const Cart = ({
   withFee
@@ -25,17 +26,15 @@ const Cart = ({
   }, [withFee]);
 
   const handleFinishButtonClick = (ev) => {
-    ev.stopPropagation();
-
     alert("Hot stuff going on now!");
   }
 
   return (
     <div className={cx(styles.container, "card")}>
       <div className="flex pa16">
-        <a href="../" className="absolute f14 mt4 ml8 no-underline black pointer">
+        <Link to="/" className="absolute f14 mt4 ml8 no-underline black pointer">
           Voltar
-        </a>
+        </Link>
         <p className="b f20 tc-ns tr w-100">
           Meu carrinho
         </p>
