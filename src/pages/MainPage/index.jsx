@@ -19,7 +19,7 @@ const MainPage = () => {
         </Link>
 
         <Link to="./withoutFee" className={styles.link}>
-          Carrinho sem frete
+          Carrinho com frete grátis
         </Link>
       </div>
 
@@ -28,8 +28,7 @@ const MainPage = () => {
           Observações
         </p>
         <p className="f16 mt12">
-          1. Os arquivos .json fornecidos não continham produtos com preços "baixos".
-          Considerei como <b>R$1000,00</b> o critério para exibição do texto de frete grátis.
+          1. Considerei a unidade de preço nos arquivos .json como <b>centavos</b>.
         </p>
         <p className="f16 mt12">
           2. É exibido uma animação de loading por um tempo aleatório entre 0 e 2 segundos, para simular uma chamada na api.
